@@ -1,0 +1,29 @@
+import random
+import time
+import json
+
+def generate_heart_rate():
+    # Simulating heart rate between 60-100 bpm
+    return random.randint(60, 100)
+
+def generate_heart_rate_variability():
+    # Simulating HRV (higher HRV is a sign of relaxation)
+    return random.randint(30, 80)  # HRV range between 30-80ms
+
+def generate_sleep_pattern():
+    # Simulate a sleep quality score out of 100
+    return random.randint(50, 100)
+
+def generate_data():
+    return {
+        "heart_rate": generate_heart_rate(),
+        "heart_rate_variability": generate_heart_rate_variability(),
+        "sleep_pattern": generate_sleep_pattern(),
+        "timestamp": int(time.time())
+    }
+
+# Simulate generating data every 5 seconds
+while True:
+    data = generate_data()
+    print(json.dumps(data, indent=4))  # Print data as JSON for clarity
+    time.sleep(5)
